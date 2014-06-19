@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1.dividing.header=title
+	form.ui.form.segment#formAddArticle(name="addarticle",method="post",action="/articles/save")
+		label Title
+		input.field#inputTitle(type="text", placeholder="Title", name="title")
+		
+		label Article
+		textarea.field#inputArticle(placeholder="Article", name="article")
+
+		button#btnSubmit(type="submit") Post
