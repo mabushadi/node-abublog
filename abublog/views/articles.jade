@@ -1,9 +1,9 @@
 extends layout
 
 block content
-	h1.ui.dividing.header Articles
 	each article, i in articles
-		h2.ui.header #{article.Title}
-		p #{article.Article}
+		div.panel
+			h3.ui.header #{article.Title}
+			p #{article.Article}
 
 	a(href="articles/add") Add

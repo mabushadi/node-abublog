@@ -7,7 +7,7 @@ var blogDal = blogdb();
 /* GET blog articles listing. */
 router.get('/', function(req, res) {
 	blogDal.getArticles(null, function(docs){
-		res.render('articles', {"articles" : docs});
+		res.render('articles', {title : "Blog", "articles" : docs});
 	});
   	
 });
