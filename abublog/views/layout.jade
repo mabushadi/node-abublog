@@ -1,0 +1,24 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='//cdn.jsdelivr.net/semantic-ui/0.18.0/css/semantic.min.css')
+
+	body
+		div.header-nav
+			ul
+				li 
+					a(href="/") Home
+				li 
+					a(href="/Articles") Articles
+				li 
+					a(href="/") About
+
+		div.title-panel
+			h1 #{title}
+
+		div.main-wrap
+			block content
+			
+			
