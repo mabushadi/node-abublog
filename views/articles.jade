@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	each article, i in articles
+		article
+			h3.ui.header #{article.Title}
+			p #{article.Article}
+
+	a(href="articles/add") Add

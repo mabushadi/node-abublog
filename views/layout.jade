@@ -1,0 +1,27 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='//cdn.jsdelivr.net/semantic-ui/0.18.0/css/semantic.min.css')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js')
+		script(src='/javascripts/newsfeed.js')
+
+	body
+		div.main-wrap
+			div.header-nav
+				ul
+					li 
+						a(href="/") Home
+					li 
+						a(href="/Articles") Articles
+					li 
+						a(href="/") About
+
+			div.title-panel
+				h1 #{title}
+
+			div.body-wrap
+				block content
+
+			
