@@ -4,7 +4,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var socket_io = require('socket.io');
+//var socket_io = require('socket.io');
 
 var routes = require('./routes/index');
 var blog = require('./routes/articles');
@@ -57,7 +57,7 @@ app.use(function(err, req, res, next) {
 });
 
 //app.listen(process.env.PORT || 5000);
-
+/*
 //  using socket io
 var io = socket_io.listen(app.listen(process.env.PORT || 5000), {transports:['flashsocket', 'websocket', 'htmlfile', 'xhr-polling', 'jsonp-polling']});
 io.sockets.on('connection', function(socket){
@@ -68,5 +68,5 @@ io.sockets.on('connection', function(socket){
         io.sockets.emit('message', data);
     });
 });
-
+*/
 module.exports = app;
