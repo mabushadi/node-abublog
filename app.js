@@ -1,14 +1,15 @@
+// load external dependencies 
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//var socket_io = require('socket.io');
+var socket_io = require('socket.io');
+var passport = require('passport-local');
+var auth = require('basic-auth');   
 
-var routes = require('./routes/index');
-var blog = require('./routes/articles');
-
+//  instantiate key objects
 var app = express();
 
 // view engine setup
@@ -22,18 +23,14 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// load routes 
+var routes = require('./routes/index');//, app, passport);
+var blog = require('./routes/articles');//, app, passport);
+
 app.use('/', routes);
 app.use('/articles', blog);
 
-/// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
 /// error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -56,17 +53,14 @@ app.use(function(err, req, res, next) {
     });
 });
 
-//app.listen(process.env.PORT || 5000);
-/*
-//  using socket io
-var io = socket_io.listen(app.listen(process.env.PORT || 5000), {transports:['flashsocket', 'websocket', 'htmlfile', 'xhr-polling', 'jsonp-polling']});
-io.sockets.on('connection', function(socket){
-    console.log('asd');
-    socket.emit('message', { message : 'hello'});
-    socket.on('send', function(data){
-        console.log('asd asd asd');
-        io.sockets.emit('message', data);
-    });
+/// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
-*/
+
+
 module.exports = app;
+console.log('Started...')
+

@@ -1,12 +1,12 @@
 var express = require('express');
-var blogdb = require('../data/db');
-
+var db = require('../db');
+var blogDal = require('../model/blog');
 var router = express.Router();
-var blogDal = blogdb();
 
-/* GET blog articles listing. */
+// GET blog articles listing
 router.get('/', function(req, res) {
-	blogDal.getArticles(null, function(docs){
+	console.log(blogDal);
+	new blogDal().getArticles(null, function(docs){
 		res.render('articles', {title : "Blog", "articles" : docs});
 	});
   	
@@ -17,8 +17,11 @@ router.get('/add', function(req, res){
 });
 
 router.post('/save', function(req, res){
+	
+	console.log(req.body);
+
 	console.log('saving: ' + req.body.title + ', ' + req.body.article);
-	blogDal.saveArticle({
+	new blogDal().saveArticle({
 		Title : req.body.title,
 		Article : req.body.article
 	}, function(err, docs){

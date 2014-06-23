@@ -6,14 +6,18 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "basic-auth": "0.0.1",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
     "express": "~4.2.0",
     "jade": "~1.3.0",
     "mongodb": "^1.4.7",
+    "mongoose": "^3.8.12",
     "monk": "^0.9.0",
     "morgan": "~1.0.0",
+    "passport-local": "^1.0.0",
     "socket.io": "^1.0.6",
     "static-favicon": "~1.0.0"
   },
